@@ -83,10 +83,10 @@ export function BlogSection() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col items-center space-y-6">
-                <div className="w-full max-w-xl">
+                <div className="w-full max-w-xl h-[600px] overflow-hidden rounded-lg border">
                   <Cal
                     calLink="femurstudio/30min"
-                    style={{ width: "100%", height: "250px" }}
+                    style={{ width: "100%", height: "100%" }}
                     config={{ layout: "month_view" }}
                   />
                 </div>
