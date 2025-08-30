@@ -25,10 +25,21 @@ const fontHeading = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "ComponentCraft | Modern UI Component Library",
-  description: "A premium component library built with shadcn/ui and Aceternity UI for modern web applications",
-  keywords: ["component library", "UI components", "React", "Next.js", "shadcn/ui", "Aceternity UI"],
-    generator: 'v0.app'
+  title: "Femur Studio | Websites, Web Apps, and Mobile Apps",
+  description:
+    "Femur is a development studio building fast, modern websites, web applications, and mobile apps. Strategy, design, and engineering under one roof.",
+  keywords: [
+    "Femur",
+    "Femur Studio",
+    "web development",
+    "web apps",
+    "mobile apps",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "UI/UX",
+  ],
+  generator: "v0.app",
 }
 
 export default function RootLayout({

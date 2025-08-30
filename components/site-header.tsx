@@ -10,7 +10,6 @@ import { List, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Icons } from "@/components/icons"
 import { useScrollPosition } from "@/hooks/use-scroll-position"
 
 const navItems = [
@@ -19,7 +18,6 @@ const navItems = [
   { name: "Services", href: "/services" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Process", href: "/process" },
-  
   { name: "Contact", href: "/contact" },
 ]
 
@@ -59,7 +57,7 @@ export function SiteHeader() {
     >
       <div className="container px-4 md:px-6 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2 z-10">
-          <Image src="/femur.jpg" alt="Femur Studio logo" width={24} height={24} className="h-6 w-6 rounded-sm object-cover" />
+          <Image src="/femur-logo.png" alt="Femur Studio logo" width={28} height={28} className="h-7 w-7" />
           <span className="font-heading text-xl tracking-tight">Femur Studio</span>
         </Link>
 
@@ -90,7 +88,6 @@ export function SiteHeader() {
 
           {/* Desktop CTA Buttons - Hidden on mobile */}
           <div className="hidden md:flex items-center space-x-2">
-            
             <Button size="sm" className="neumorphic-button-primary" asChild>
               <Link href="/contact">
                 Book Call
@@ -135,7 +132,7 @@ export function SiteHeader() {
             >
               <div className="flex items-center justify-between p-4 border-b border-border">
                 <Link href="/" className="flex items-center space-x-2" onClick={closeMobileMenu}>
-                  <Image src="/femur.jpg" alt="Femur Studio logo" width={24} height={24} className="h-6 w-6 rounded-sm object-cover" />
+                  <Image src="/femur-logo.png" alt="Femur Studio logo" width={24} height={24} className="h-6 w-6" />
                   <span className="font-heading text-lg">Femur Studio</span>
                 </Link>
                 <button

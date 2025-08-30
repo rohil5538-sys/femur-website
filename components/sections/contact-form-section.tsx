@@ -29,6 +29,8 @@ export function ContactFormSection() {
     services: [] as string[],
     newsletter: false,
   })
+  const [submitting, setSubmitting] = useState(false)
+  const [status, setStatus] = useState<{ type: "success" | "error" | null; message?: string }>({ type: null })
 
   const projectTypes = [
     "Website Development",
@@ -67,10 +69,25 @@ export function ContactFormSection() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+    setSubmitting(true)
+    setStatus({ type: null })
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data?.error || "Something went wrong")
+      setStatus({ type: "success", message: "Thanks! We’ll get back to you within 24 hours." })
+      setFormData((prev) => ({ ...prev, message: "", services: [], budget: "", timeline: "" }))
+    } catch (err: any) {
+      setStatus({ type: "error", message: err?.message || "Failed to submit. Please try again." })
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -244,10 +261,21 @@ export function ContactFormSection() {
                       </Label>
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full bg-red-500 hover:bg-red-600">
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full bg-red-500 hover:bg-red-600"
+                      disabled={submitting}
+                      aria-busy={submitting}
+                    >
                       <Send className="h-4 w-4 mr-2" />
-                      Send Project Details
+                      {submitting ? "Sending..." : "Send Project Details"}
                     </Button>
+                    {status.type && (
+                      <p className={status.type === "success" ? "text-green-500 text-sm" : "text-red-500 text-sm"}>
+                        {status.message}
+                      </p>
+                    )}
                   </form>
                 </CardContent>
               </Card>

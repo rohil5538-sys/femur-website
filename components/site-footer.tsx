@@ -10,7 +10,8 @@ export function SiteFooter() {
         <div className="flex flex-col gap-10 md:flex-row">
           <div className="flex flex-1 flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/femur.jpg" alt="Femur Studio logo" width={24} height={24} className="h-6 w-6 rounded-sm object-cover" />
+              {/* use vector logo and ensure accessible alt */}
+              <Image src="/femur-logo.png" alt="Femur Studio logo" width={24} height={24} className="h-6 w-6" />
               <span className="font-heading text-xl tracking-tight">Femur Studio</span>
             </Link>
             <p className="text-muted-foreground max-w-sm opacity-70">
@@ -148,7 +149,8 @@ export function SiteFooter() {
         </div>
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p className="text-sm text-muted-foreground opacity-70">
-            &copy; {new Date().getFullYear()} ComponentCraft. All rights reserved.
+            {/* update copyright to Femur Studio */}
+            &copy; {new Date().getFullYear()} Femur Studio. All rights reserved.
           </p>
           <div className="flex gap-4">
             <Link
