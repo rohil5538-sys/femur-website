@@ -35,17 +35,6 @@ export async function POST(req: Request) {
       newsletter: Boolean(body.newsletter),
     }
 
-    // Optional: forward to a webhook if configured
-    const webhook = process.env.CONTACT_WEBHOOK_URL
-    if (webhook) {
-      await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ source: "femur-website", payload }),
-      })
-    }
-
-    // Optional: add email provider integration here (Resend, etc.)
     // Keep response generic
     return NextResponse.json({ ok: true })
   } catch (e) {

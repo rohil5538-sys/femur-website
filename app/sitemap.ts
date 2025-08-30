@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next"
 
+export const dynamic = "force-dynamic"
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
+  const base = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"
 
   const paths = ["", "/about", "/services", "/portfolio", "/process", "/contact"]
 
